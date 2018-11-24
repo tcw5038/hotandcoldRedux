@@ -1,9 +1,15 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-export default function CurrentGuess(props) {
+export function CurrentGuess(props) {
     return (
     <h2>
-       {props.value}
+       {props.currentGuess}
     </h2>
   );
 }
+
+const mapStateToProps = state => ({currentGuess: state.currentGuess});
+
+
+export default connect (mapStateToProps)(CurrentGuess)

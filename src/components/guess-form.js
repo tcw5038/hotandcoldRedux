@@ -1,18 +1,15 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {setNewGuess} from '../actions';
 
-export default class GuessForm extends React.Component {
+
+export class GuessForm extends React.Component {
     
     submitGuess(event) {
         event.preventDefault();
-        if(this.props.setNewGuess && this.textInput.value >=1 && this.textInput.value <=100){
-            const value = this.textInput.value;
-            this.props.setNewGuess(value);
-            this.textInput.value = '';
-        }
-        else{
-            this.textInput.value = '';
-        }
-        
+        const value = this.textInput.value;
+        this.props.dispatch(setNewGuess(value));
+        this.textInput.value = '';
 	}
 
     render(){
@@ -23,4 +20,6 @@ export default class GuessForm extends React.Component {
             </form>
         );
     }
-}
+};
+
+export default connect()(GuessForm);
