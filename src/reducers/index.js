@@ -1,7 +1,7 @@
 import {SET_NEW_GUESS} from '../actions';
 
 const initialState = {
-    num : Math.floor((Math.random() * 100) + 1),//returns a random number between 1 and 100
+    num:Math.floor((Math.random() * 100) + 1),//returns a random number between 1 and 100
     resultHint:'Make your first guess',
     currentGuess: null,//remember to ask whether null works here or whether I should have something else
     guessHistory: []

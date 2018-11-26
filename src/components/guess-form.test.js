@@ -6,7 +6,7 @@ describe('<GuessForm />', () => {
     it('Renders without crashing', () => {
       shallow(<GuessForm />);
     });
-      it('Should call setNewGuess when the form is submitted', () => {
+      it('Should call setNewGuess when the form is submitted', () => {//
         const callback = jest.fn();//creates a mock callback function
         const wrapper = mount(<GuessForm setNewGuess={callback} />);//gives setNewGuess a value of our created mock callback
         const value = 10;
