@@ -1,10 +1,9 @@
-import {SET_NEW_GUESS} from '../actions';
+import {SET_NEW_GUESS, RESET_GAME} from '../actions';
 
 const initialState = {
-    num:Math.floor((Math.random() * 100) + 1),//returns a random number between 1 and 100
+    num:Math.floor((Math.random() * 100) + 1),
     resultHint:'Make your first guess',
-    currentGuess: null,//remember to ask whether null works here or whether I should have something else
-    guessHistory: []
+    history: []
 };
 
 
@@ -31,9 +30,16 @@ export const hotColdReducer = (state=initialState, action) => {
 
         return Object.assign({}, state, {
             resultHint:resultHint,
-            guessHistory:[...state.guessHistory, guess],
-            currentGuess: guess
+            history:[...state.history, guess],
         });
+    }
+    else if(action.type === RESET_GAME){
+        return {
+            num:Math.floor((Math.random() * 100) + 1),
+            resultHint:'Make your first guess',
+            history: []
+        };
+
     }
 
     return state;

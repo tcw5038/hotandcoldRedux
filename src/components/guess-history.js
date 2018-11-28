@@ -2,9 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 export function GuessHistory(props) {
-  if (typeof props.guessHistory !== 'undefined' && props.guessHistory.length > 0)
+  if (typeof props.history !== 'undefined' && props.history.length > 0)
   {
-    let guesses = props.guessHistory.map((guess, index) =>
+    let guesses = props.history.map((guess, index) =>
     <li key={index}>
         {guess}
     </li>
@@ -27,7 +27,7 @@ export function GuessHistory(props) {
     );
   }
 }
-const mapStateToProps = state => ({guessHistory: state.guessHistory});
+const mapStateToProps = state => ({history: state.history});
 
 export default connect(mapStateToProps)(GuessHistory);
 

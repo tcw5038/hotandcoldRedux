@@ -2,6 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 export function CurrentGuess(props) {
+  let lastGuess = '';
+  if (props.history.length){
+    lastGuess = props.history[props.history.length-1];
+  }
     return (
     <h2>
        {props.currentGuess}
@@ -9,7 +13,7 @@ export function CurrentGuess(props) {
   );
 }
 
-const mapStateToProps = state => ({currentGuess: state.currentGuess});
+const mapStateToProps = state => ({history: state.history});
 
 
 export default connect (mapStateToProps)(CurrentGuess)
