@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import GuessForm from './guess-form';
+import {GuessForm} from './guess-form';
 
 describe('<GuessForm />', () => {
     it('Renders without crashing', () => {
@@ -8,7 +8,7 @@ describe('<GuessForm />', () => {
     });
       it('Should call setNewGuess when the form is submitted', () => {//
         const callback = jest.fn();//creates a mock callback function
-        const wrapper = mount(<GuessForm setNewGuess={callback} />);//gives setNewGuess a value of our created mock callback
+        const wrapper = mount(<GuessForm onSubmit={callback} />);//gives setNewGuess a value of our created mock callback
         const value = 10;
         const input = wrapper.find('input[type="number"]');//jQuery find method to find the number input
         input.instance().value = 10;//sets the value to 10

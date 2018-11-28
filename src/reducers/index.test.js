@@ -3,9 +3,10 @@ import {setNewGuess} from '../actions';
 
 describe('hotColdReducer', () => {
     it('Should set the initial state when nothing is passed in', () => {
-        const state = hotColdReducer(undefined, {type: '__UNKNOWN'});
+        const state = hotColdReducer(undefined, {type: '__UNKNOWN'});//hotColdReducer takes 2 arguments in this case: an undefined state and an unknown action
+        const correctNum = state.num;
         expect(state).toEqual({
-            num:Math.floor((Math.random() * 100) + 1), //test fails because of this random number generator
+            num:correctNum,
             resultHint:'Make your first guess',
             currentGuess: null,
             guessHistory: []

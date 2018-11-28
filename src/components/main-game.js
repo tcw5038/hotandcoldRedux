@@ -5,15 +5,6 @@ import ShowHint from './show-hint';
 import CurrentGuess from './current-guess';
 import GuessHistory from './guess-history';
 
-/*export const mapStateToProps = state => ({
-    num : Math.floor((Math.random() * 100) + 1),//returns a random number between 1 and 100
-    resultHint:state.resultHint,
-    currentGuess: null,//remember to ask whether null works here or whether I should have something else
-    guessHistory: state.guessHistory
-
-});*/
-
-
 export default class MainGame extends React.Component{
 render(){
     return(
