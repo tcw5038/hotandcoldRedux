@@ -9,7 +9,7 @@ describe('<GuessHistory />', () => {
 
     it('Renders a list of guesses', () => {
       const values = [10, 24, 52];
-      const wrapper = shallow(<GuessHistory guessHistory={values} />);
+      const wrapper = shallow(<GuessHistory history={values} />);
       const items = wrapper.find('li');
       expect(items.length).toEqual(values.length);
       values.forEach((value, index) => {

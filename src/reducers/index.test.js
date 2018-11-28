@@ -8,8 +8,7 @@ describe('hotColdReducer', () => {
         expect(state).toEqual({
             num:correctNum,
             resultHint:'Make your first guess',
-            currentGuess: null,
-            guessHistory: []
+            history: []
         });
     });
     it('Should return the current state on an unknown action', () => {
@@ -23,18 +22,15 @@ describe('setNewGuess', () => {
     it('Should make a new guess', () => {
         let state = {
             num: 50,
-            guessHistory:[],
+            history:[],
             resultHint: '',
-            currentGuess:null
         };
         state = hotColdReducer(state, setNewGuess(25));
-        expect(state.guessHistory).toEqual([25]);
-        expect(state.currentGuess).toEqual(25);
+        expect(state.history).toEqual([25]);
         expect(state.resultHint).toEqual('Still cold');
 
         state = hotColdReducer(state, setNewGuess(50));
-        expect(state.guessHistory).toEqual([25, 50]);
-        expect(state.currentGuess).toEqual(50);
+        expect(state.history).toEqual([25, 50]);
         expect(state.resultHint).toEqual('You guessed right!');
     });
 

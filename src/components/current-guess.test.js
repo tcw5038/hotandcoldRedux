@@ -6,13 +6,12 @@ import {CurrentGuess} from './current-guess';
 
 describe('<CurrentGuess />', () => {
     it('Renders without crashing', () => {
-      shallow(<CurrentGuess  />);
+      shallow(<CurrentGuess  history={[]}/>);
     });
     
     it('Renders the current guess', () => {
-        const currentGuess = 50;
-        const wrapper = mount(<CurrentGuess currentGuess={currentGuess}/>);
+        const history = [50];
+        const wrapper = mount(<CurrentGuess history={history}/>);
         expect(wrapper.text()).toEqual('50');
     });
-    
 });

@@ -8,7 +8,7 @@ export function CurrentGuess(props) {
   }
     return (
     <h2>
-       {props.currentGuess}
+       {lastGuess}
     </h2>
   );
 }
